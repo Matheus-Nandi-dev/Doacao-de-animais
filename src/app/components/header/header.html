@@ -1,0 +1,63 @@
+<header class="app-header">
+  <div class="header-brand">
+    <div class="brand-icon">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14 4C10 4 7 7 7 11c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z" fill="#fff" opacity="0.9"/>
+        <circle cx="11" cy="10" r="1.5" fill="#2DD4BF"/>
+        <circle cx="17" cy="10" r="1.5" fill="#2DD4BF"/>
+        <path d="M11 13.5c0 0 1.5 2 3 2s3-2 3-2" stroke="#2DD4BF" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+      </svg>
+    </div>
+    <span class="brand-name">Animal</span>
+  </div>
+
+  <button class="hamburger" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen" aria-label="Abrir menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <nav class="nav-links" [class.open]="menuOpen">
+    <a routerLink="/inicio"
+       routerLinkActive="active"
+       [routerLinkActiveOptions]="{ exact: true }"
+       (click)="closeMenu()">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+        <path d="M8 1L1 7v8h5v-4h4v4h5V7L8 1z"/>
+      </svg>
+      Início
+    </a>
+
+    <a routerLink="/cadastro"
+       routerLinkActive="active"
+       (click)="closeMenu()">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+        <circle cx="8" cy="5" r="3"/>
+        <path d="M2 14c0-3.3 2.7-6 6-6s6 2.7 6 6"/>
+      </svg>
+      Cadastro
+    </a>
+
+    <a routerLink="/listagem"
+       routerLinkActive="active"
+       (click)="closeMenu()">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+        <rect x="1" y="3" width="14" height="2" rx="1"/>
+        <rect x="1" y="7" width="14" height="2" rx="1"/>
+        <rect x="1" y="11" width="14" height="2" rx="1"/>
+      </svg>
+      Listagem
+    </a>
+
+    <a routerLink="/sobre"
+       routerLinkActive="active"
+       (click)="closeMenu()">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+        <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5" fill="none"/>
+        <rect x="7" y="7" width="2" height="5" rx="1"/>
+        <circle cx="8" cy="5" r="1"/>
+      </svg>
+      Sobre
+    </a>
+  </nav>
+</header>

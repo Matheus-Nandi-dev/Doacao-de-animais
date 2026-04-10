@@ -1,0 +1,115 @@
+/* ===== App Footer — Animal ===== */
+:host {
+  display: block;
+}
+
+.app-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: #0d9488;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  height: 48px;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ===== Brand ===== */
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-shrink: 0;
+}
+
+.brand-icon {
+  width: 28px;
+  height: 28px;
+  background-color: rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-name {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #ffffff;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  letter-spacing: 0.04em;
+}
+
+/* ===== Divider ===== */
+.footer-divider {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 0.8rem;
+  user-select: none;
+}
+
+/* ===== Text ===== */
+.footer-text {
+  margin: 0;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.78);
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+}
+
+/* ===== Tagline ===== */
+.footer-tagline {
+  margin: 0;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.heart {
+  color: #fda4af;
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+/* ===== Padding compensation for page content ===== */
+/*
+  Add this to your global styles.css or app.component.css:
+
+  body {
+    padding-bottom: 48px;
+  }
+*/
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+  .footer-divider,
+  .footer-tagline {
+    display: none;
+  }
+
+  .footer-inner {
+    justify-content: center;
+    gap: 0.6rem;
+  }
+
+  .footer-text {
+    font-size: 0.75rem;
+    white-space: normal;
+    text-align: center;
+  }
+}
