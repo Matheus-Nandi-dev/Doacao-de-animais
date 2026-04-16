@@ -1,0 +1,21 @@
+<section class="detalhe" *ngIf="animal">
+  <img [src]="animal.imagem" [alt]="animal.nome" class="detalhe__foto" />
+
+  <div class="detalhe__conteudo">
+    <h2 class="detalhe__nome">{{ animal.nome }}</h2>
+    <p class="detalhe__info">🐾 Gênero: {{ animal.genero }}</p>
+    <p class="detalhe__info">🎂 Idade: {{ animal.idade }}</p>
+    <p class="detalhe__info">🐶 Raça: {{ animal.raca }}</p>
+    <p class="detalhe__descricao">{{ animal.descricao }}</p>
+
+    <a [routerLink]="['/adotar', animal.id]" class="detalhe__btn">
+      🐾 Adotar {{ animal.nome }}
+    </a>
+
+    <a routerLink="/listagem" class="detalhe__voltar">← Voltar para listagem</a>
+  </div>
+</section>
+
+<div class="detalhe__loading" *ngIf="!animal">
+  <p>Carregando...</p>
+</div>

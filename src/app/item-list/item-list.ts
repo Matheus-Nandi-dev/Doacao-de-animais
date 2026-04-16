@@ -1,9 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { Animal, AnimalService } from '../services/animal';
 
 @Component({
   selector: 'app-item-list',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule, RouterModule],
   templateUrl: './item-list.html',
-  styleUrl: './item-list.css',
+  styleUrl: './item-list.css'
 })
-export class ItemList {}
+export class ItemList implements OnInit {
+  animais: Animal[] = [];
+
+  private readonly animalService = inject(AnimalService);
+
+  ngOnInit(): void {
+    this.animalService.getAnimais().subscribe((data) => {
+      this.animais = data;
+    });
+  }
+}

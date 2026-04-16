@@ -1,1 +1,14 @@
-<p>item-list works!</p>
+<section class="listagem">
+  <h2 class="listagem__titulo">Encontre seu novo amigo 🐾</h2>
+
+  <div class="listagem__grid">
+    <div class="card" *ngFor="let animal of animais">
+      <img [src]="animal.imagem" [alt]="animal.nome" class="card__foto" />
+      <div class="card__info">
+        <h3 class="card__nome">{{ animal.nome }}</h3>
+        <span class="card__detalhe">{{ animal.genero }} · {{ animal.idade }}</span>
+        <a [routerLink]="['/item', animal.id]" class="card__btn">Ver detalhes</a>
+      </div>
+    </div>
+  </div>
+</section>
