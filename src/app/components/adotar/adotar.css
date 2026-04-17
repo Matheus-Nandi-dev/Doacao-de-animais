@@ -1,0 +1,143 @@
+.adotar-page {
+	min-height: calc(100vh - 130px);
+	background: #0a1628;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 24px;
+}
+
+.modal-box {
+	background: #112240;
+	border-radius: 16px;
+	padding: 32px;
+	width: 100%;
+	max-width: 640px;
+	position: relative;
+	border: 1px solid #1e3a5f;
+}
+
+.modal-fechar {
+	position: absolute;
+	top: 12px;
+	right: 16px;
+	background: none;
+	border: none;
+	color: #a0b0c0;
+	font-size: 1.2rem;
+	line-height: 1;
+	cursor: pointer;
+}
+
+.modal-box h2 {
+	color: #ffffff;
+	font-size: 2rem;
+	margin: 0 0 8px;
+}
+
+.modal-subtitulo {
+	color: #2dd4bf;
+	font-size: 1.4rem;
+	margin: 0 0 24px;
+}
+
+.modal-campo {
+	margin-bottom: 14px;
+}
+
+.modal-campo label {
+	display: block;
+	color: #a0b0c0;
+	font-size: 1.2rem;
+	margin-bottom: 6px;
+}
+
+.modal-campo input {
+	width: 100%;
+	background: #0a1628;
+	border: 1px solid #1e3a5f;
+	color: #ffffff;
+	padding: 10px 14px;
+	border-radius: 14px;
+	font-size: 1rem;
+	outline: none;
+	box-sizing: border-box;
+}
+
+.modal-campo input:focus {
+	border-color: #2dd4bf;
+}
+
+.btn-adotar-confirmar {
+	width: 100%;
+	background: #2dd4bf;
+	color: #0a1628;
+	border: none;
+	border-radius: 14px;
+	padding: 14px;
+	font-weight: 700;
+	font-size: 1.1rem;
+	cursor: pointer;
+	margin-top: 8px;
+	transition: background 0.2s;
+}
+
+.btn-adotar-confirmar:hover {
+	background: #14b8a6;
+}
+
+.btn-cancelar {
+	display: block;
+	width: 100%;
+	background: transparent;
+	color: #a0b0c0;
+	border: 1px solid #1e3a5f;
+	border-radius: 14px;
+	padding: 12px;
+	font-size: 1rem;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+	margin-top: 8px;
+	transition: border-color 0.2s;
+}
+
+.btn-cancelar:hover {
+	border-color: #f87171;
+	color: #f87171;
+}
+
+.adotar-loading {
+	min-height: calc(100vh - 130px);
+	background: #0a1628;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 14px;
+	color: #a0b0c0;
+	font-size: 1.2rem;
+	padding: 24px;
+}
+
+@media (max-width: 900px) {
+	.modal-box {
+		max-width: 560px;
+		padding: 24px;
+	}
+
+	.modal-box h2 {
+		font-size: 2rem;
+	}
+
+	.modal-subtitulo {
+		font-size: 1rem;
+	}
+
+	.modal-campo label,
+	.modal-campo input,
+	.btn-adotar-confirmar,
+	.btn-cancelar {
+		font-size: 0.95rem;
+	}
+}

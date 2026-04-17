@@ -1,21 +1,51 @@
-<section class="detalhe" *ngIf="animal">
-  <img [src]="animal.imagem" [alt]="animal.nome" class="detalhe__foto" />
-
-  <div class="detalhe__conteudo">
-    <h2 class="detalhe__nome">{{ animal.nome }}</h2>
-    <p class="detalhe__info">🐾 Gênero: {{ animal.genero }}</p>
-    <p class="detalhe__info">🎂 Idade: {{ animal.idade }}</p>
-    <p class="detalhe__info">🐶 Raça: {{ animal.raca }}</p>
-    <p class="detalhe__descricao">{{ animal.descricao }}</p>
-
-    <a [routerLink]="['/adotar', animal.id]" class="detalhe__btn">
-      🐾 Adotar {{ animal.nome }}
-    </a>
-
+@if (loading) {
+  <div class="detalhe__loading">
+    <p>Carregando...</p>
+  </div>
+} @else if (erro || !animal) {
+  <div class="detalhe__loading">
+    <p>Não foi possível carregar este animal agora.</p>
     <a routerLink="/listagem" class="detalhe__voltar">← Voltar para listagem</a>
   </div>
-</section>
+} @else {
+  <section class="detalhe">
+    <div class="detalhe__card">
+      <div class="detalhe__midia">
+        @if (!imagemComErro && animal.imagem) {
+          <img
+            [src]="animal.imagem"
+            [alt]="animal.nome"
+            [style.object-position]="posicaoImagem"
+            class="detalhe__foto"
+            loading="eager"
+            (error)="tratarErroImagem()"
+          />
+        } @else {
+          <div class="detalhe__foto-placeholder">{{ animal.nome.charAt(0) }}</div>
+        }
+      </div>
 
-<div class="detalhe__loading" *ngIf="!animal">
-  <p>Carregando...</p>
-</div>
+      <div class="detalhe__conteudo">
+        <h2 class="detalhe__nome">{{ animal.nome }}</h2>
+
+        <div class="detalhe__grid-info">
+          <p class="detalhe__info">🐾 Gênero: <span>{{ animal.genero }}</span></p>
+          <p class="detalhe__info">🎂 Idade: <span>{{ animal.idade }}</span></p>
+          <p class="detalhe__info">🏙️ Cidade: <span>{{ cidadeExibicao }}</span></p>
+          <p class="detalhe__info">🐶 Espécie: <span>{{ especieExibicao }}</span></p>
+        </div>
+
+        <div class="detalhe__bloco">
+          <h3>Temperamento</h3>
+          <p class="detalhe__descricao">{{ descricaoTemperamento }}</p>
+        </div>
+
+        <a [routerLink]="['/adotar', animal.id]" class="detalhe__btn">
+          🐾 Adotar {{ animal.nome }}
+        </a>
+
+        <a routerLink="/listagem" class="detalhe__voltar">← Voltar para listagem</a>
+      </div>
+    </div>
+  </section>
+}

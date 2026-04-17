@@ -1,0 +1,98 @@
+:host {
+  display: block;
+}
+
+.sobre {
+  min-height: calc(100vh - 112px);
+  background: radial-gradient(circle at 20% 20%, #12335a, #0a1628 55%, #071224);
+  color: #e8f3ff;
+  padding: 48px 20px 72px;
+}
+
+.sobre__container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: rgba(17, 34, 64, 0.72);
+  border: 1px solid #1e3a5f;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+}
+
+.sobre__tag {
+  display: inline-block;
+  margin: 0 0 10px;
+  color: #2dd4bf;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sobre__titulo {
+  margin: 0 0 18px;
+  color: #ffffff;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  line-height: 1.1;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+.sobre__texto {
+  margin: 0 0 14px;
+  color: #c7dbf4;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.sobre__cta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.sobre__btn {
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 10px;
+  padding: 11px 16px;
+  font-weight: 700;
+  transition: transform 0.2s, background 0.2s, border-color 0.2s;
+}
+
+.sobre__btn:hover {
+  transform: translateY(-1px);
+}
+
+.sobre__btn--primary {
+  background: #2dd4bf;
+  color: #0a1628;
+}
+
+.sobre__btn--primary:hover {
+  background: #14b8a6;
+}
+
+.sobre__btn--secondary {
+  background: transparent;
+  color: #9ec5f2;
+  border: 1px solid #2c4f7f;
+}
+
+.sobre__btn--secondary:hover {
+  border-color: #4b78b3;
+  color: #d3e5ff;
+}
+
+@media (max-width: 700px) {
+  .sobre {
+    padding: 24px 14px 62px;
+  }
+
+  .sobre__container {
+    padding: 20px;
+  }
+
+  .sobre__texto {
+    font-size: 1rem;
+  }
+}

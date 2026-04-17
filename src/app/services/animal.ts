@@ -3,13 +3,15 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface Animal {
-  id: number;
+  id: string;
   nome: string;
   genero: string;
   idade: string | number;
-  raca: string;
-  descricao: string;
-  imagem: string;
+  especie?: string;
+  raca?: string;
+  cidade?: string;
+  descricao?: string;
+  imagem?: string;
 }
 
 @Injectable({
@@ -24,7 +26,7 @@ export class AnimalService {
     return this.http.get<Animal[]>(this.apiUrl);
   }
 
-  getAnimalById(id: number): Observable<Animal> {
+  getAnimalById(id: string): Observable<Animal> {
     return this.http.get<Animal>(`${this.apiUrl}/${id}`);
   }
 }

@@ -1,1 +1,39 @@
-<p>adotar works!</p>
+@if (loading) {
+	<div class="adotar-loading">
+		<p>Carregando...</p>
+	</div>
+} @else if (erro) {
+	<div class="adotar-loading">
+		<p>Não foi possível carregar os dados de adoção agora.</p>
+		<a routerLink="/listagem" class="btn-cancelar">Voltar para listagem</a>
+	</div>
+} @else {
+	<main class="adotar-page">
+		<div class="modal-box">
+			<button class="modal-fechar" (click)="fecharModal()">✕</button>
+			<h2>Quero Adotar! 🐾</h2>
+			<p class="modal-subtitulo">Solicitando adoção de: {{ animalSelecionadoNome }}</p>
+
+			<div class="modal-campo">
+				<label>Nome</label>
+				<input type="text" [(ngModel)]="modalNome" placeholder="Seu nome completo" />
+			</div>
+
+			<div class="modal-campo">
+				<label>WhatsApp</label>
+				<input type="tel" [(ngModel)]="modalWhatsapp" placeholder="(00) 00000-0000" />
+			</div>
+
+			<div class="modal-campo">
+				<label>E-mail</label>
+				<input type="email" [(ngModel)]="modalEmail" placeholder="seu@email.com" />
+			</div>
+
+			<button class="btn-adotar-confirmar" (click)="confirmarAdocao()">
+				Um toque para adotar 🐾
+			</button>
+
+			<button class="btn-cancelar" (click)="fecharModal()">Cancelar</button>
+		</div>
+	</main>
+}

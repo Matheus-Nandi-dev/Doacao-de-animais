@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global reset and app shell sizing */
+html,
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	min-height: 100%;
+}
+
+body {
+	background: #0a1628;
+	overflow-x: hidden;
+	padding-bottom: 48px;
+}

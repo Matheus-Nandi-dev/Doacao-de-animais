@@ -1,14 +1,128 @@
-<section class="listagem">
-  <h2 class="listagem__titulo">Encontre seu novo amigo 🐾</h2>
+<main class="listagem-container">
 
-  <div class="listagem__grid">
-    <div class="card" *ngFor="let animal of animais">
-      <img [src]="animal.imagem" [alt]="animal.nome" class="card__foto" />
-      <div class="card__info">
-        <h3 class="card__nome">{{ animal.nome }}</h3>
-        <span class="card__detalhe">{{ animal.genero }} · {{ animal.idade }}</span>
-        <a [routerLink]="['/item', animal.id]" class="card__btn">Ver detalhes</a>
+  <div class="bg-glow" aria-hidden="true">
+    <span class="glow g1"></span>
+    <span class="glow g2"></span>
+    <span class="glow g3"></span>
+  </div>
+
+  <!-- Cabeçalho -->
+  <div class="listagem-hero">
+    <div class="listagem-header">
+      <p class="listagem-badge">Adoção responsável</p>
+      <h1>Encontre seu novo amigo 🐾</h1>
+      <p>Animais esperando por um lar cheio de amor</p>
+      <div class="filtros">
+        <input
+          type="text"
+          [(ngModel)]="busca"
+          (input)="filtrarAnimais()"
+          placeholder="Pesquisar por nome ou espécie..."
+        />
+        <select [(ngModel)]="filtroEspecie" (change)="filtrarAnimais()">
+          <option value="">Todas as espécies</option>
+          <option value="cachorro">Cachorro</option>
+          <option value="gato">Gato</option>
+          <option value="coelho">Coelho</option>
+          <option value="hamster">Hamster</option>
+        </select>
+        <select [(ngModel)]="filtroGenero" (change)="filtrarAnimais()">
+          <option value="">Todos os gêneros</option>
+          <option value="masculino">Macho</option>
+          <option value="feminino">Fêmea</option>
+        </select>
       </div>
     </div>
   </div>
-</section>
+
+  <!-- Loading -->
+  @if (loading) {
+    <div class="loading">
+      <div class="spinner"></div>
+      <p>Carregando animais...</p>
+    </div>
+  }
+
+  <!-- Erro -->
+  @if (erro) {
+    <div class="erro">
+      <p>⚠️ Não foi possível carregar os animais. Verifique se a API está rodando.</p>
+    </div>
+  }
+
+  <!-- Grid de cards -->
+  @if (!loading && !erro) {
+    <div class="grid-animais">
+      @for (animal of animaisFiltrados; track animal.id) {
+        <div
+          class="card-animal"
+          tabindex="0"
+          role="button"
+          (click)="abrirDetalhe(animal.id)"
+          (keydown.enter)="abrirDetalhe(animal.id)"
+          (keydown.space)="abrirDetalhe(animal.id); $event.preventDefault()"
+        >
+          @if (deveMostrarImagem(animal)) {
+            <img
+              class="card-foto"
+              [src]="animal.imagem"
+              [alt]="animal.nome"
+              [style.object-position]="obterPosicaoImagem(animal.id)"
+              loading="lazy"
+              decoding="async"
+              (error)="tratarErroImagem(animal.id)"
+            />
+          } @else {
+            <div class="card-foto-placeholder">{{ emojiEspecie(animal.especie) }}</div>
+          }
+          <div class="card-body">
+            <div class="card-nome">{{ animal.nome }}</div>
+            <div class="card-info">Espécie: <span>{{ animal.especie || 'N/A' }}</span></div>
+            <div class="card-info">Idade: <span>{{ animal.idade || 'N/A' }}</span></div>
+            <div class="card-info">Cidade: <span>{{ animal.cidade || 'N/A' }}</span></div>
+            <div class="card-badge" [class.femea]="isFemea(animal.genero)">
+              {{ isFemea(animal.genero) ? '♀ Fêmea' : '♂ Macho' }}
+            </div>
+          </div>
+          <button class="btn-adotar" (click)="$event.stopPropagation(); abrirModal(animal.nome)">
+            🐾 Adotar
+          </button>
+        </div>
+      }
+
+      @if (animaisFiltrados.length === 0) {
+        <div class="sem-resultados">
+          <p>🐾 Nenhum animal encontrado com esses filtros.</p>
+        </div>
+      }
+    </div>
+  }
+
+</main>
+
+<!-- Modal -->
+@if (modalAberto) {
+  <div class="modal-overlay" (click)="fecharModal()">
+    <div class="modal-box" (click)="$event.stopPropagation()">
+      <button class="modal-fechar" (click)="fecharModal()">✕</button>
+      <h2>Quero Adotar! 🐾</h2>
+      <p class="modal-subtitulo">Solicitando adoção de: {{ animalSelecionadoNome }}</p>
+      <div class="modal-campo">
+        <label>Nome</label>
+        <input type="text" [(ngModel)]="modalNome" placeholder="Seu nome completo" />
+      </div>
+      <div class="modal-campo">
+        <label>WhatsApp</label>
+        <input type="tel" [(ngModel)]="modalWhatsapp" placeholder="(00) 00000-0000" />
+      </div>
+      <div class="modal-campo">
+        <label>E-mail</label>
+        <input type="email" [(ngModel)]="modalEmail" placeholder="seu@email.com" />
+      </div>
+      <button class="btn-adotar-confirmar" (click)="confirmarAdocao()">
+        Um toque para adotar 🐾
+      </button>
+      <button class="btn-cancelar" (click)="fecharModal()">Cancelar</button>
+    </div>
+  </div>
+}
