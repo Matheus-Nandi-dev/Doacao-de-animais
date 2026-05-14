@@ -119,7 +119,7 @@ export class ItemList implements OnInit {
   }
 
   obterPosicaoImagem(id: string): string {
-    return this.ajusteEnquadramentoPorId[id] ?? '50% 24%';
+    return this.ajusteEnquadramentoPorId[id] ?? '50% 10%';
   }
 
   isFemea(genero: string): boolean {

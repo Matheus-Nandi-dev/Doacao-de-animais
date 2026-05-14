@@ -61,12 +61,13 @@ export class ItemDetalhe implements OnInit {
   }
 
   get posicaoImagem(): string {
+
     const id = this.animal?.id;
     if (!id) {
       return '50% 50%';
     }
 
-    return this.ajusteEnquadramentoPorId[id] ?? '50% 24%';
+    return this.ajusteEnquadramentoPorId[id] ?? '50% 0%';
   }
 
   get especieExibicao(): string {
