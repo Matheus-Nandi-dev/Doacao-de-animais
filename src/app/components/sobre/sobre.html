@@ -1,26 +1,94 @@
-<section class="sobre">
+<section class="sobre" role="region" aria-label="Sobre o Novo Lar">
+  <div class="sobre__bg" aria-hidden="true">
+    <div class="sobre__glow sobre__glow--1"></div>
+    <div class="sobre__glow sobre__glow--2"></div>
+    <div class="sobre__glow sobre__glow--3"></div>
+  </div>
+
   <div class="sobre__container">
-    <p class="sobre__tag">Nossa causa</p>
-    <h1 class="sobre__titulo">Por que criamos o Cantinho Animal?</h1>
+    <!-- Hero Section -->
+    <div class="sobre__hero">
+      <span class="sobre__tag">🎯 Nossa Missão</span>
+      <h1 class="sobre__titulo">Por que criamos o Novo Lar?</h1>
+      <p class="sobre__subtitulo">Conectando corações a novos melhores amigos</p>
+    </div>
 
-    <p class="sobre__texto">
-      O Cantinho Animal nasceu da vontade de aproximar animais que precisam de um lar de pessoas dispostas a adotar com responsabilidade.
-      Muitas vezes, pets carinhosos e saudáveis ficam invisíveis por falta de divulgação. Este site foi criado para mudar isso.
-    </p>
+    <!-- Conteúdo Principal -->
+    <div class="sobre__content">
+      <div class="sobre__texto-principal">
+        <p class="sobre__texto">
+          O Novo Lar nasceu da vontade de <strong>aproximar animais que precisam de um lar</strong> de pessoas dispostas a adotar com responsabilidade. Muitas vezes, pets carinhosos e saudáveis ficam invisíveis por falta de divulgação. <strong>Este site foi criado para mudar isso.</strong>
+        </p>
 
-    <p class="sobre__texto">
-      Aqui, cada animal ganha espaço para mostrar sua história, seu temperamento e suas características. Assim, quem adota pode tomar
-      uma decisão consciente, pensando em rotina, ambiente e cuidado a longo prazo.
-    </p>
+        <p class="sobre__texto">
+          Aqui, cada animal ganha espaço para mostrar sua história, seu temperamento e suas características. Assim, quem adota pode tomar uma decisão consciente, pensando em <strong>rotina, ambiente e cuidado a longo prazo.</strong>
+        </p>
 
-    <p class="sobre__texto">
-      Nosso objetivo é simples: facilitar encontros que se transformam em família. Quando uma adoção responsável acontece,
-      todos ganham: o animal, o adotante e a comunidade.
-    </p>
+        <p class="sobre__texto">
+          Nosso objetivo é simples: <strong>facilitar encontros que se transformam em família.</strong> Quando uma adoção responsável acontece, todos ganham: o animal, o adotante e a comunidade.
+        </p>
+      </div>
 
+      <!-- Valores -->
+      <div class="sobre__valores">
+        <div class="sobre__valor">
+          <div class="sobre__valor-icon">❤️</div>
+          <h3 class="sobre__valor-titulo">Responsabilidade</h3>
+          <p class="sobre__valor-text">Adoção consciente pensando no bem-estar animal a longo prazo</p>
+        </div>
+
+        <div class="sobre__valor">
+          <div class="sobre__valor-icon">🔍</div>
+          <h3 class="sobre__valor-titulo">Transparência</h3>
+          <p class="sobre__valor-text">Informações detalhadas sobre cada animal para melhor compatibilidade</p>
+        </div>
+
+        <div class="sobre__valor">
+          <div class="sobre__valor-icon">🤝</div>
+          <h3 class="sobre__valor-titulo">Comunidade</h3>
+          <p class="sobre__valor-text">Criando conexões significativas entre animais e famílias</p>
+        </div>
+      </div>
+
+      <!-- Números -->
+      <div class="sobre__stats">
+        <div class="sobre__stat">
+          <span class="sobre__stat-numero">+120</span>
+          <span class="sobre__stat-label">Animais</span>
+        </div>
+        <div class="sobre__stat-divider" aria-hidden="true"></div>
+        <div class="sobre__stat">
+          <span class="sobre__stat-numero">+80</span>
+          <span class="sobre__stat-label">Adoções</span>
+        </div>
+        <div class="sobre__stat-divider" aria-hidden="true"></div>
+        <div class="sobre__stat">
+          <span class="sobre__stat-numero">+40</span>
+          <span class="sobre__stat-label">Famílias Felizes</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
     <div class="sobre__cta">
-      <a routerLink="/listagem" class="sobre__btn sobre__btn--primary">Ver animais disponíveis</a>
-      <a routerLink="/inicio" class="sobre__btn sobre__btn--secondary">Voltar ao início</a>
+      <a routerLink="/listagem" class="sobre__btn sobre__btn--primary" aria-label="Ver animais disponíveis para adoção">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor" aria-hidden="true">
+          <path d="M9 1L11.29 6.88H17.59L12.65 10.62L14.94 16.5L9 12.75L3.06 16.5L5.35 10.62L0.41 6.88H6.71L9 1Z"/>
+        </svg>
+        Ver animais disponíveis
+      </a>
+      <a routerLink="/doacao" class="sobre__btn sobre__btn--secondary" aria-label="Quer doar seu animal? Acesse a página de doação">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor" aria-hidden="true">
+          <path d="M9 2L11.5 6.5H17L12.5 9.5L14.5 14.5L9 11.5L3.5 14.5L5.5 9.5L1 6.5H6.5L9 2Z"/>
+        </svg>
+        Quer doar seu animal?
+      </a>
+      <a routerLink="/inicio" class="sobre__btn sobre__btn--tertiary" aria-label="Voltar à página inicial">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor" aria-hidden="true">
+          <path d="M8 1L1 7V17H6V11H10V17H15V7L8 1Z"/>
+        </svg>
+        Voltar ao início
+      </a>
     </div>
   </div>
 </section>

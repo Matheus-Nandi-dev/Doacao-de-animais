@@ -1,0 +1,77 @@
+<div class="admin-panel">
+  <div class="panel-header">
+    <h1>👥 Gerenciar Doadores</h1>
+    <button class="btn-novo" (click)="abrirFormulario()">+ Novo Doador</button>
+  </div>
+
+  <!-- Formulário -->
+  <div class="formulario-container" *ngIf="formularioVisivel">
+    <div class="formulario">
+      <h2>{{ editando ? 'Editar Doador' : 'Novo Doador' }}</h2>
+      
+      <div class="form-group">
+        <label>Nome do Animal:</label>
+        <input type="text" [(ngModel)]="novoDoador.nome" placeholder="Ex: Rex">
+      </div>
+
+      <div class="form-group">
+        <label>Espécie:</label>
+        <input type="text" [(ngModel)]="novoDoador.especie" placeholder="Ex: Cachorro, Gato">
+      </div>
+
+      <div class="form-group">
+        <label>Descrição:</label>
+        <textarea [(ngModel)]="novoDoador.descricao" placeholder="Descreva o animal..." rows="3"></textarea>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Idade:</label>
+          <input type="number" [(ngModel)]="novoDoador.idade" placeholder="Anos">
+        </div>
+        <div class="form-group">
+          <label>Cidade:</label>
+          <input type="text" [(ngModel)]="novoDoador.cidade" placeholder="Cidade">
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button class="btn-salvar" (click)="adicionarDoador()">Salvar</button>
+        <button class="btn-cancelar" (click)="fecharFormulario()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tabela de Doadores -->
+  <div class="tabela-container">
+    <table class="tabela">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Espécie</th>
+          <th>Idade</th>
+          <th>Cidade</th>
+          <th>Descrição</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let doador of doadores">
+          <td class="nome">{{ doador.nome }}</td>
+          <td>{{ doador.especie }}</td>
+          <td class="center">{{ doador.idade }} anos</td>
+          <td>{{ doador.cidade }}</td>
+          <td class="descricao">{{ doador.descricao }}</td>
+          <td class="acoes">
+            <button class="btn-editar" (click)="editarDoador(doador)">✏️ Editar</button>
+            <button class="btn-deletar" (click)="deletarDoador(doador.id)">🗑️ Deletar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="vazio" *ngIf="doadores.length === 0">
+    <p>Nenhum doador cadastrado. <a href="#" (click)="abrirFormulario(); $event.preventDefault()">Cadastre um novo!</a></p>
+  </div>
+</div>

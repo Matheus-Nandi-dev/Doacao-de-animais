@@ -1,4 +1,4 @@
-/* ===== App Header — Animal ===== */
+/* ===== App Header — Novo Lar ===== */
 :host {
   display: block;
 }
@@ -36,7 +36,7 @@
 }
 
 .brand-name {
-  font-size: 1.3rem;
+  font-size: 1.9rem;
   font-weight: 500;
   color: #ffffff;
   letter-spacing: 0.04em;
@@ -55,10 +55,10 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 0.45rem 0.9rem;
+  padding: 0.75rem 1.3rem;
   border-radius: 999px;
   color: rgba(255, 255, 255, 0.88);
-  font-size: 0.9rem;
+  font-size: 1.35rem;
   font-weight: 400;
   text-decoration: none;
   transition: background 0.18s ease, color 0.18s ease;
@@ -149,8 +149,8 @@
 
   .nav-links a {
     border-radius: 8px;
-    padding: 0.65rem 0.85rem;
-    font-size: 0.95rem;
+    padding: 1rem 1.2rem;
+    font-size: 1.3rem;
   }
 
   .nav-links a.active {
@@ -161,8 +161,8 @@
 /* ===== Tablet ===== */
 @media (min-width: 768px) and (max-width: 1023px) {
   .nav-links a {
-    padding: 0.4rem 0.65rem;
-    font-size: 0.85rem;
+    padding: 0.75rem 1rem;
+    font-size: 1.25rem;
     gap: 4px;
   }
 

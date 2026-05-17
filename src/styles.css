@@ -12,3 +12,79 @@ body {
 	overflow-x: hidden;
 	padding-bottom: 48px;
 }
+
+/* ===== ACESSIBILIDADE WCAG 2.1 ===== */
+
+/* Skip to main content link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #2dd4bf;
+  color: #0a1628;
+  padding: 12px 24px;
+  text-decoration: none;
+  z-index: 100;
+  font-weight: 700;
+  border-radius: 0 0 8px 0;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* Focus visible para navegação por teclado */
+:focus-visible {
+  outline: 3px solid #2dd4bf;
+  outline-offset: 2px;
+}
+
+/* Preferências de movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Modo de alto contraste */
+@media (prefers-contrast: more) {
+  body {
+    background: #000;
+  }
+  
+  main,
+  section,
+  div {
+    border-color: #fff !important;
+  }
+}
+
+/* Modo escuro melhorado */
+@media (prefers-color-scheme: dark) {
+  /* Já temos tema escuro por padrão */
+}
+
+/* Aumento de zoom */
+@media (min-width: 1920px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+/* Mínimo de tamanho para clique/toque */
+button,
+a,
+input[type="checkbox"],
+input[type="radio"],
+input[type="file"],
+select {
+  min-height: 44px;
+  min-width: 44px;
+}

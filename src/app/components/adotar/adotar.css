@@ -1,83 +1,159 @@
 .adotar-page {
 	min-height: calc(100vh - 130px);
-	background: #0a1628;
+	background: linear-gradient(135deg, #0a1628 0%, #0f1f3a 100%);
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	padding: 24px;
 }
 
-.modal-box {
-	background: #112240;
-	border-radius: 16px;
-	padding: 32px;
+.adotar-modal {
+	max-width: 620px;
 	width: 100%;
-	max-width: 640px;
-	position: relative;
-	border: 1px solid #1e3a5f;
 }
 
-.modal-fechar {
+.modal-content {
+	background: linear-gradient(135deg, #112240 0%, #0f1f3a 100%);
+	border-radius: 22px;
+	padding: 56px;
+	position: relative;
+	border: 2px solid #1e3a5f;
+	box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.modal-close {
 	position: absolute;
-	top: 12px;
-	right: 16px;
+	top: 16px;
+	right: 20px;
 	background: none;
 	border: none;
 	color: #a0b0c0;
-	font-size: 1.2rem;
-	line-height: 1;
-	cursor: pointer;
-}
-
-.modal-box h2 {
-	color: #ffffff;
 	font-size: 2rem;
-	margin: 0 0 8px;
+	cursor: pointer;
+	transition: color 0.2s;
+	padding: 4px 8px;
+	line-height: 1;
 }
 
-.modal-subtitulo {
+.modal-close:hover {
 	color: #2dd4bf;
-	font-size: 1.4rem;
-	margin: 0 0 24px;
 }
 
-.modal-campo {
-	margin-bottom: 14px;
+.modal-content h2 {
+	color: #ffffff;
+	font-size: 2.2rem;
+	margin: 0 0 20px;
+	font-weight: 700;
+	letter-spacing: -0.5px;
 }
 
-.modal-campo label {
+.modal-desc {
+	color: #7c8fa0;
+	font-size: 1.25rem;
+	margin: 0 0 36px;
+	line-height: 1.6;
+}
+
+.modal-desc strong {
+	color: #2dd4bf;
+	font-weight: 600;
+}
+
+.modal-form {
+	margin-bottom: 32px;
+}
+
+.form-group {
+	margin-bottom: 24px;
+	margin-bottom: 28px;
+}
+
+.form-group label {
 	display: block;
 	color: #a0b0c0;
-	font-size: 1.2rem;
-	margin-bottom: 6px;
+	font-size: 1.15rem;
+	margin-bottom: 14px;
+	font-weight: 600;
 }
 
-.modal-campo input {
+.modal-input {
 	width: 100%;
-	background: #0a1628;
-	border: 1px solid #1e3a5f;
+	background: rgba(10, 22, 40, 0.8);
+	border: 2px solid #1e3a5f;
 	color: #ffffff;
-	padding: 10px 14px;
-	border-radius: 14px;
-	font-size: 1rem;
+	padding: 20px 20px;
+	border-radius: 12px;
+	font-size: 1.1rem;
 	outline: none;
 	box-sizing: border-box;
+	transition: all 0.2s;
+	font-family: inherit;
+	height: 56px;
 }
 
-.modal-campo input:focus {
+.modal-input:hover {
 	border-color: #2dd4bf;
 }
 
-.btn-adotar-confirmar {
+.modal-input:focus {
+	border-color: #2dd4bf;
+	background: rgba(45, 212, 191, 0.05);
+	box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.1);
+}
+
+.modal-input::placeholder {
+	color: #5a6f85;
+}
+
+.modal-actions {
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+}
+
+.modal-actions .btn-enviar {
 	width: 100%;
-	background: #2dd4bf;
+	background: linear-gradient(135deg, #2dd4bf, #14b8a6);
 	color: #0a1628;
 	border: none;
-	border-radius: 14px;
-	padding: 14px;
+	border-radius: 12px;
+	padding: 20px 26px;
 	font-weight: 700;
-	font-size: 1.1rem;
+	font-size: 1.2rem;
 	cursor: pointer;
+	transition: all 0.3s;
+	font-family: inherit;
+	height: 58px;
+}
+
+.modal-actions .btn-enviar:hover {
+	background: linear-gradient(135deg, #14b8a6, #0d9488);
+	transform: translateY(-2px);
+	box-shadow: 0 8px 16px rgba(45, 212, 191, 0.3);
+}
+
+.modal-actions .btn-enviar:active {
+	transform: translateY(0);
+}
+
+.modal-actions .btn-cancelar {
+	background: transparent;
+	border: 2px solid #1e3a5f;
+	color: #a0b0c0;
+	padding: 18px 26px;
+	margin: 0;
+	transition: all 0.2s;
+	font-family: inherit;
+	font-size: 1.05rem;
+	height: 58px;
+	font-weight: 600;
+}
+
+.modal-actions .btn-cancelar:hover {
+	color: #f87171;
+	border-color: #f87171;
+	background: rgba(248, 113, 113, 0.05);
+}
 	margin-top: 8px;
 	transition: background 0.2s;
 }
@@ -93,8 +169,8 @@
 	color: #a0b0c0;
 	border: 1px solid #1e3a5f;
 	border-radius: 14px;
-	padding: 12px;
-	font-size: 1rem;
+	padding: 14px;
+	font-size: 1.05rem;
 	text-align: center;
 	text-decoration: none;
 	cursor: pointer;

@@ -1,0 +1,243 @@
+/* Importar estilos do doadores já que são similares */
+.admin-panel {
+  color: #e8f3ff;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid rgba(45, 212, 191, 0.3);
+}
+
+.panel-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.btn-novo {
+  background: linear-gradient(90deg, #14b8a6, #0ea5a6);
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-novo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(45, 212, 191, 0.3);
+}
+
+.formulario-container {
+  background: rgba(45, 212, 191, 0.1);
+  border: 1px solid rgba(45, 212, 191, 0.3);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 30px;
+}
+
+.formulario h2 {
+  margin: 0 0 20px;
+  color: #2dd4bf;
+  font-size: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  color: #9bc0dd;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  background: rgba(13, 52, 86, 0.5);
+  border: 1px solid rgba(45, 212, 191, 0.3);
+  border-radius: 6px;
+  color: #ffffff;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.form-group input::placeholder {
+  color: #5a7a96;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #2dd4bf;
+  background: rgba(13, 52, 86, 0.7);
+  box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.1);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.btn-salvar {
+  background: #2dd4bf;
+  color: #0a1628;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-salvar:hover {
+  background: #20b2a6;
+  transform: translateY(-1px);
+}
+
+.btn-cancelar {
+  background: rgba(255, 255, 255, 0.1);
+  color: #9bc0dd;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-cancelar:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.tabela-container {
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid rgba(45, 212, 191, 0.2);
+}
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  background: linear-gradient(135deg, rgba(13, 52, 86, 0.6), rgba(9, 30, 54, 0.5));
+}
+
+.tabela thead {
+  background: rgba(13, 52, 86, 0.9);
+  border-bottom: 2px solid rgba(45, 212, 191, 0.3);
+}
+
+.tabela th {
+  padding: 16px 12px;
+  text-align: left;
+  color: #2dd4bf;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.tabela td {
+  padding: 14px 12px;
+  border-bottom: 1px solid rgba(45, 212, 191, 0.1);
+  color: #9bc0dd;
+  font-size: 1rem;
+}
+
+.tabela tbody tr:hover {
+  background: rgba(45, 212, 191, 0.05);
+}
+
+.tabela .nome {
+  color: #2dd4bf;
+  font-weight: 600;
+}
+
+.tabela .acoes {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-editar,
+.btn-deletar {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-editar {
+  background: rgba(45, 212, 191, 0.2);
+  color: #2dd4bf;
+  border: 1px solid rgba(45, 212, 191, 0.4);
+}
+
+.btn-editar:hover {
+  background: rgba(45, 212, 191, 0.3);
+}
+
+.btn-deletar {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ff6b6b;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+.btn-deletar:hover {
+  background: rgba(239, 68, 68, 0.3);
+}
+
+.vazio {
+  text-align: center;
+  padding: 40px 20px;
+  color: #9bc0dd;
+  font-size: 1.1rem;
+}
+
+.vazio a {
+  color: #2dd4bf;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.vazio a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .panel-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .tabela th,
+  .tabela td {
+    padding: 10px 8px;
+    font-size: 0.9rem;
+  }
+}

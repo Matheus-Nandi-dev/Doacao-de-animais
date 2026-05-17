@@ -7,7 +7,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "Doacao-de-animais": {
+    "novo-lar": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -39,8 +39,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "maximumWarning": "50kB",
+                  "maximumError": "100kB"
                 }
               ],
               "outputHashing": "all"
@@ -57,10 +57,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Doacao-de-animais:build:production"
+              "buildTarget": "novo-lar:build:production"
             },
             "development": {
-              "buildTarget": "Doacao-de-animais:build:development"
+              "buildTarget": "novo-lar:build:development"
             }
           },
           "defaultConfiguration": "development"

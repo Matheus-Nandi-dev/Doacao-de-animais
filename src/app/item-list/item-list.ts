@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit, inject } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ChangeDetectionStrategy, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -20,7 +20,8 @@ export interface AnimalData {
   standalone: true,
   imports: [CommonModule, RouterModule, FormsModule],
   templateUrl: './item-list.html',
-  styleUrl: './item-list.css'
+  styleUrl: './item-list.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ItemList implements OnInit {
   todosAnimais: AnimalData[] = [];
@@ -119,7 +120,7 @@ export class ItemList implements OnInit {
   }
 
   obterPosicaoImagem(id: string): string {
-    return this.ajusteEnquadramentoPorId[id] ?? '50% 24%';
+    return this.ajusteEnquadramentoPorId[id] ?? '50% 10%';
   }
 
   isFemea(genero: string): boolean {
@@ -163,10 +164,16 @@ export class ItemList implements OnInit {
 
   confirmarAdocao(): void {
     if (!this.modalNome || !this.modalWhatsapp || !this.modalEmail) {
-      alert('Por favor, preencha todos os campos!');
+      // TODO: Replace with proper toast notification
+      console.warn('Por favor, preencha todos os campos!');
       return;
     }
-    alert(`✅ Solicitação enviada!\nEntraremos em contato em breve, ${this.modalNome}!`);
+    // TODO: Send adoption request to backend
+    console.log(`Solicitação enviada! Entraremos em contato em breve, ${this.modalNome}!`);
     this.fecharModal();
+  }
+
+  trackById(index: number, item: AnimalData): string {
+    return item.id;
   }
 }

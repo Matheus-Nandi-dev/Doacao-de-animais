@@ -1,0 +1,27 @@
+<div class="admin-container">
+  <!-- Sidebar -->
+  <nav class="admin-sidebar" [class.aberto]="menuAberto">
+    <div class="sidebar-header">
+      <h2>Administrador</h2>
+      <button class="btn-fechar" (click)="fecharMenu()" aria-label="Fechar menu">✕</button>
+    </div>
+    
+    <ul class="menu-list">
+      <li><a routerLink="/admin" routerLinkActive="ativo" (click)="fecharMenu()">📊 Dashboard</a></li>
+      <li><a routerLink="/admin/doadores" routerLinkActive="ativo" (click)="fecharMenu()">👥 Doadores</a></li>
+      <li><a routerLink="/admin/adotantes" routerLinkActive="ativo" (click)="fecharMenu()">💕 Adotantes</a></li>
+      <li><a routerLink="/admin/cidades" routerLinkActive="ativo" (click)="fecharMenu()">🏙️ Cidades</a></li>
+      <li><a routerLink="/admin/adocoes" routerLinkActive="ativo" (click)="fecharMenu()">📋 Adoções</a></li>
+      <li><a routerLink="/" (click)="fecharMenu()">🏠 Voltar ao Site</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="admin-main">
+    <!-- Mobile Menu Button -->
+    <button class="btn-menu-mobile" (click)="toggleMenu()" aria-label="Abrir menu">☰ Menu</button>
+    
+    <!-- Conteúdo da rota -->
+    <router-outlet></router-outlet>
+  </main>
+</div>

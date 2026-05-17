@@ -1,0 +1,78 @@
+<div class="admin-panel">
+  <div class="panel-header">
+    <h1>💕 Gerenciar Adotantes</h1>
+    <button class="btn-novo" (click)="abrirFormulario()">+ Novo Adotante</button>
+  </div>
+
+  <!-- Formulário -->
+  <div class="formulario-container" *ngIf="formularioVisivel">
+    <div class="formulario">
+      <h2>{{ editando ? 'Editar Adotante' : 'Novo Adotante' }}</h2>
+      
+      <div class="form-group">
+        <label>Nome Completo:</label>
+        <input type="text" [(ngModel)]="novoAdotante.nome" placeholder="Ex: João Silva">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Email:</label>
+          <input type="email" [(ngModel)]="novoAdotante.email" placeholder="email@example.com">
+        </div>
+        <div class="form-group">
+          <label>Telefone:</label>
+          <input type="tel" [(ngModel)]="novoAdotante.telefone" placeholder="(45) 98765-4321">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Cidade:</label>
+          <input type="text" [(ngModel)]="novoAdotante.cidade" placeholder="Cidade">
+        </div>
+        <div class="form-group">
+          <label>Data da Adoção:</label>
+          <input type="date" [(ngModel)]="novoAdotante.dataAdocao">
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button class="btn-salvar" (click)="adicionarAdotante()">Salvar</button>
+        <button class="btn-cancelar" (click)="fecharFormulario()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tabela de Adotantes -->
+  <div class="tabela-container">
+    <table class="tabela">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Telefone</th>
+          <th>Cidade</th>
+          <th>Data Adoção</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let adotante of adotantes">
+          <td class="nome">{{ adotante.nome }}</td>
+          <td>{{ adotante.email }}</td>
+          <td>{{ adotante.telefone }}</td>
+          <td>{{ adotante.cidade }}</td>
+          <td>{{ adotante.dataAdocao | date:'dd/MM/yyyy' }}</td>
+          <td class="acoes">
+            <button class="btn-editar" (click)="editarAdotante(adotante)">✏️ Editar</button>
+            <button class="btn-deletar" (click)="deletarAdotante(adotante.id)">🗑️ Deletar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="vazio" *ngIf="adotantes.length === 0">
+    <p>Nenhum adotante cadastrado. <a href="#" (click)="abrirFormulario(); $event.preventDefault()">Cadastre um novo!</a></p>
+  </div>
+</div>

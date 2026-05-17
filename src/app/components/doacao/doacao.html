@@ -1,0 +1,274 @@
+<div class="doacao-container">
+  <div class="bg-glow" aria-hidden="true">
+    <div class="glow g1"></div>
+    <div class="glow g2"></div>
+    <div class="glow g3"></div>
+  </div>
+
+  <div class="doacao-hero">
+    <div class="doacao-header">
+      <span class="doacao-badge">❤️ Ajude um Animal</span>
+      <h1>Doe seu Animal de Estimação</h1>
+      <p>Encontre um novo lar amoroso para seu amigo de quatro patas</p>
+    </div>
+  </div>
+
+  <!-- Mensagem de Sucesso -->
+  @if (enviado) {
+    <div class="mensagem-sucesso" role="alert" aria-live="polite">
+      <div class="mensagem-conteudo">
+        <h2>✅ Doação Registrada com Sucesso!</h2>
+        <p>Obrigado por ajudar a encontrar um novo lar para {{ formulario.nome }}.</p>
+        <p>Você será redirecionado em breve...</p>
+      </div>
+    </div>
+  }
+
+  <!-- Mensagem de Erro -->
+  @if (erro && !enviado) {
+    <div class="mensagem-erro" role="alert" aria-live="assertive">
+      <div class="mensagem-conteudo">
+        <h2>⚠️ Erro no Preenchimento</h2>
+        <p>{{ mensagemErro }}</p>
+        <button class="btn-fechar" (click)="fecharMensagem()" aria-label="Fechar mensagem de erro">Fechar</button>
+      </div>
+    </div>
+  }
+
+  <!-- Formulário -->
+  @if (!enviado) {
+    <div class="formulario-container">
+    <form (ngSubmit)="enviarDoacao()" class="formulario" novalidate>
+      <!-- Seção 1: Informações do Animal -->
+      <fieldset class="secao-form">
+        <legend class="titulo-secao">📋 Informações do Animal</legend>
+
+        <div class="form-row">
+          <div class="form-grupo">
+            <label for="nomeAnimal">Nome do Animal <span aria-label="obrigatório">*</span></label>
+            <input
+              id="nomeAnimal"
+              type="text"
+              [(ngModel)]="formulario.nome"
+              name="nome"
+              placeholder="Ex: Max, Luna..."
+              class="input-field"
+              required
+              aria-required="true"
+            />
+          </div>
+
+          <div class="form-grupo">
+            <label for="especie">Espécie <span aria-label="obrigatório">*</span></label>
+            <select
+              id="especie"
+              [(ngModel)]="formulario.especie"
+              name="especie"
+              class="input-field"
+              required
+              aria-required="true"
+            >
+              <option value="">Selecione a espécie</option>
+              @for (esp of especies; track esp.valor) {
+                <option [value]="esp.valor">
+                  {{ esp.nome }}
+                </option>
+              }
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-grupo">
+            <label for="raca">Raça <span aria-label="obrigatório">*</span></label>
+            <input
+              id="raca"
+              type="text"
+              [(ngModel)]="formulario.raca"
+              name="raca"
+              placeholder="Ex: Poodle, Siamês..."
+              class="input-field"
+              required
+              aria-required="true"
+            />
+          </div>
+
+          <div class="form-grupo">
+            <label for="idade">Idade <span aria-label="obrigatório">*</span></label>
+            <select
+              id="idade"
+              [(ngModel)]="formulario.idade"
+              name="idade"
+              class="input-field"
+              required
+              aria-required="true"
+            >
+              <option value="">Selecione a idade</option>
+              @for (id of idadesOptions; track id.valor) {
+                <option [value]="id.valor">
+                  {{ id.nome }}
+                </option>
+              }
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-grupo">
+            <label for="genero">Gênero <span aria-label="obrigatório">*</span></label>
+            <select
+              id="genero"
+              [(ngModel)]="formulario.genero"
+              name="genero"
+              class="input-field"
+              required
+              aria-required="true"
+            >
+              @for (gen of generos; track gen.valor) {
+                <option [value]="gen.valor">
+                  {{ gen.nome }}
+                </option>
+              }
+            </select>
+          </div>
+
+          <div class="form-grupo">
+            <label for="cidade">Cidade <span aria-label="obrigatório">*</span></label>
+            <input
+              id="cidade"
+              type="text"
+              [(ngModel)]="formulario.cidade"
+              name="cidade"
+              placeholder="Ex: São Paulo, Brasília..."
+              class="input-field"
+              required
+              aria-required="true"
+            />
+          </div>
+        </div>
+
+        <div class="form-grupo fullwidth">
+          <label for="descricao">Descrição do Animal <span aria-label="obrigatório">*</span></label>
+          <textarea
+            id="descricao"
+            [(ngModel)]="formulario.descricao"
+            name="descricao"
+            placeholder="Descreva o temperamento, saúde, vacinação e qualquer informação relevante..."
+            class="input-field textarea"
+            rows="4"
+            required
+            aria-required="true"
+          ></textarea>
+        </div>
+
+        <div class="form-grupo fullwidth">
+          <label for="motivo">Motivo da Doação <span aria-label="obrigatório">*</span></label>
+          <textarea
+            id="motivo"
+            [(ngModel)]="formulario.motivoDacao"
+            name="motivoDacao"
+            placeholder="Por que você deseja doar o animal?"
+            class="input-field textarea"
+            rows="3"
+            required
+            aria-required="true"
+          ></textarea>
+        </div>
+
+        <div class="form-grupo fullwidth">
+          <label for="imagem">Foto do Animal <span aria-label="opcional">(opcional)</span></label>
+          <div class="input-arquivo">
+            <input
+              id="imagem"
+              type="file"
+              accept="image/*"
+              (change)="onImagemSelecionada($event)"
+              class="input-file"
+              aria-label="Selecione uma foto do animal"
+            />
+            <span class="arquivo-label" aria-hidden="true">📷 Selecione uma foto</span>
+          </div>
+          @if (imagemPreview) {
+            <img
+              [src]="imagemPreview"
+              [alt]="formulario.nome || 'Preview da imagem do animal'"
+              class="imagem-preview"
+            />
+          }
+        </div>
+      </fieldset>
+
+      <!-- Seção 2: Seus Dados -->
+      <fieldset class="secao-form">
+        <legend class="titulo-secao">👤 Seus Dados de Contato</legend>
+
+        <div class="form-row">
+          <div class="form-grupo">
+            <label for="nomeDoador">Seu Nome <span aria-label="obrigatório">*</span></label>
+            <input
+              id="nomeDoador"
+              type="text"
+              [(ngModel)]="formulario.nomeDoador"
+              name="nomeDoador"
+              placeholder="Seu nome completo"
+              class="input-field"
+              required
+              aria-required="true"
+            />
+          </div>
+
+          <div class="form-grupo">
+            <label for="emailDoador">Email <span aria-label="obrigatório">*</span></label>
+            <input
+              id="emailDoador"
+              type="email"
+              [(ngModel)]="formulario.emailDoador"
+              name="emailDoador"
+              placeholder="seu.email@exemplo.com"
+              class="input-field"
+              required
+              aria-required="true"
+              aria-describedby="emailHelp"
+            />
+            <small id="emailHelp" class="form-help">Usaremos seu email para contato sobre a adoção</small>
+          </div>
+        </div>
+
+        <div class="form-grupo fullwidth">
+          <label for="telefoneDoador">Telefone / WhatsApp <span aria-label="obrigatório">*</span></label>
+          <input
+            id="telefoneDoador"
+            type="tel"
+            [(ngModel)]="formulario.telefoneDoador"
+            name="telefoneDoador"
+            placeholder="(XX) XXXXX-XXXX"
+            class="input-field"
+            required
+            aria-required="true"
+            aria-describedby="telefonicHelp"
+          />
+          <small id="telefonicHelp" class="form-help">Com DDD, exemplo: (11) 98765-4321</small>
+        </div>
+      </fieldset>
+
+      <!-- Botões -->
+      <div class="form-acoes">
+        <button type="button" class="btn-cancelar" (click)="limparForm()" aria-label="Limpar formulário">
+          🗑️ Limpar Formulário
+        </button>
+        <button
+          type="submit"
+          class="btn-enviar"
+          [disabled]="loading"
+          [attr.aria-busy]="loading"
+        >
+          @if (!loading) {
+            <span>✅ Registrar Doação</span>
+          } @else {
+            <span>⏳ Enviando...</span>
+          }
+        </button>
+      </div>
+    </form>
+    </div>
+  }

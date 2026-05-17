@@ -1,0 +1,68 @@
+<div class="admin-panel">
+  <div class="panel-header">
+    <h1>📋 Listar Adoções</h1>
+    <div class="filtros">
+      @for (status of ['todos', 'concluida', 'pendente', 'cancelada']; track status) {
+        <button 
+          [class.ativo]="filtroStatus === status"
+          (click)="setFiltroStatus(status)">
+          {{ status === 'todos' ? 'Todas' : (status === 'concluida' ? 'Concluídas' : (status === 'pendente' ? 'Pendentes' : 'Canceladas')) }}
+        </button>
+      }
+    </div>
+  </div>
+
+  <!-- Tabela de Adoções -->
+  <div class="tabela-container">
+    <table class="tabela">
+      <thead>
+        <tr>
+          <th>Animal</th>
+          <th>Adotante</th>
+          <th>Data</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (adocao of adocoesFiltradas; track adocao.id) {
+          <tr>
+            <td class="animal">{{ adocao.animal }}</td>
+            <td>{{ adocao.adotante }}</td>
+            <td class="center">{{ adocao.data | date:'dd/MM/yyyy' }}</td>
+            <td>
+              <span class="status" [class]="'status ' + getStatusClass(adocao.status)">
+                {{ getStatusLabel(adocao.status) }}
+              </span>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+  @if (adocoesFiltradas.length === 0) {
+    <div class="vazio">
+      <p>Nenhuma adoção encontrada com esse filtro.</p>
+    </div>
+  }
+
+  <!-- Estatísticas -->
+  <div class="stats-container">
+    <div class="stat-item">
+      <h3>Total de Adoções</h3>
+      <p class="valor">{{ adocoes.length }}</p>
+    </div>
+    <div class="stat-item concluida">
+      <h3>Adoções Concluídas</h3>
+      <p class="valor">{{ adocoes.filter(a => a.status === 'concluida').length }}</p>
+    </div>
+    <div class="stat-item pendente">
+      <h3>Adoções Pendentes</h3>
+      <p class="valor">{{ adocoes.filter(a => a.status === 'pendente').length }}</p>
+    </div>
+    <div class="stat-item cancelada">
+      <h3>Adoções Canceladas</h3>
+      <p class="valor">{{ adocoes.filter(a => a.status === 'cancelada').length }}</p>
+    </div>
+  </div>
+</div>
