@@ -8,7 +8,7 @@
         <path d="M11 13.5c0 0 1.5 2 3 2s3-2 3-2" stroke="#2DD4BF" stroke-width="1.2" stroke-linecap="round" fill="none"/>
       </svg>
     </div>
-    <span class="brand-name">Animal</span>
+    <span class="brand-name">Novo Lar</span>
   </div>
 
   <button class="hamburger" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen" aria-label="Abrir menu">
@@ -48,6 +48,15 @@
         <circle cx="8" cy="5" r="1"/>
       </svg>
       Sobre
+    </a>
+
+    <a routerLink="/doacao"
+       routerLinkActive="active"
+       (click)="closeMenu()">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+        <path d="M8 1L10 5h4l-3 3 1 4-4-3-4 3 1-4-3-3h4L8 1z"/>
+      </svg>
+      Doar
     </a>
   </nav>
 </header>

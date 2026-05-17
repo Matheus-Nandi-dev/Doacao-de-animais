@@ -1,7 +1,7 @@
 .detalhe {
   min-height: calc(100vh - 130px);
   background: radial-gradient(circle at 10% 10%, #102747, #09172c 55%, #061022);
-  padding: 32px 20px;
+  padding: 40px 24px;
 }
 
 .detalhe__card {
@@ -16,7 +16,7 @@
 }
 
 .detalhe__midia {
-  min-height: 420px;
+  min-height: 480px;
   background: #132d52;
 }
 
@@ -41,63 +41,72 @@
 }
 
 .detalhe__conteudo {
-  padding: 24px;
+  padding: 32px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 18px;
 }
 
 .detalhe__nome {
   color: #ffffff;
-  font-size: 2rem;
+  font-size: 2.4rem;
   margin: 0;
+  font-weight: 700;
 }
 
 .detalhe__grid-info {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
+  gap: 14px;
 }
 
 .detalhe__info {
   color: #9ab4d8;
-  font-size: 0.95rem;
+  font-size: 1.5rem;
   margin: 0;
   background: #102747;
-  border: 1px solid #1e3a5f;
-  border-radius: 10px;
-  padding: 10px 12px;
+  border: 2px solid #1e3a5f;
+  border-radius: 12px;
+  padding: 18px 20px;
+  font-weight: 500;
 }
 
 .detalhe__info span {
   color: #2dd4bf;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 1.6rem;
 }
 
 .detalhe__bloco h3 {
-  margin: 2px 0 8px;
+  margin: 4px 0 12px;
   color: #ffffff;
-  font-size: 1.05rem;
+  font-size: 1.6rem;
+  font-weight: 700;
 }
 
 .detalhe__descricao {
   color: #d3e3fa;
-  font-size: 0.98rem;
-  line-height: 1.6;
+  font-size: 1.5rem;
+  line-height: 1.8;
   margin: 0;
 }
 
 .detalhe__btn {
   display: block;
-  margin-top: 8px;
-  padding: 0.9rem;
+  margin-top: 12px;
+  padding: 16px 20px;
   background: #2dd4bf;
   color: #0a1628;
-  border-radius: 10px;
+  border-radius: 12px;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 700;
+  font-size: 1.2rem;
   text-align: center;
   transition: background 0.2s;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .detalhe__btn:hover {
@@ -109,8 +118,15 @@
   text-align: center;
   color: #2dd4bf;
   text-decoration: none;
-  margin-top: 2px;
-  font-size: 0.9rem;
+  margin-top: 8px;
+  margin-bottom: 24px;
+  font-size: 1.35rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.detalhe__voltar:hover {
+  color: #14b8a6;
 }
 
 .detalhe__loading {

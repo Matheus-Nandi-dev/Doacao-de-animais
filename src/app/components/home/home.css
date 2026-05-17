@@ -1,4 +1,4 @@
-/* ===== HomeComponent — Cantinho Animal ===== */
+/* ===== HomeComponent — Novo Lar ===== */
 :host {
   display: block;
   height: 100%;
@@ -121,9 +121,9 @@
   background: rgba(45, 212, 191, 0.1);
   border: 1px solid rgba(45, 212, 191, 0.3);
   color: #5eead4;
-  font-size: 0.78rem;
+  font-size: 1.05rem;
   font-weight: 500;
-  padding: 5px 14px;
+  padding: 6px 16px;
   border-radius: 999px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -186,7 +186,7 @@
 /* ===== Subtitle ===== */
 .hero-sub {
   margin: 0;
-  font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+  font-size: clamp(1.2rem, 2.8vw, 1.45rem);
   color: #9bc0dd;
   line-height: 1.7;
   max-width: 420px;
@@ -205,9 +205,9 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 0.75rem 1.6rem;
+  padding: 0.95rem 2rem;
   border-radius: 999px;
-  font-size: 0.95rem;
+  font-size: 1.2rem;
   font-weight: 500;
   text-decoration: none;
   cursor: pointer;
@@ -257,7 +257,7 @@
   background: rgba(18, 54, 90, 0.58);
   border: 1px solid rgba(84, 132, 176, 0.28);
   border-radius: 14px;
-  padding: 12px;
+  padding: 20px;
   display: flex;
   align-items: flex-start;
   gap: 10px;
@@ -280,13 +280,13 @@
 .highlight-item h3 {
   margin: 0;
   color: #dff5ff;
-  font-size: 0.95rem;
+  font-size: 1.55rem;
 }
 
 .highlight-item p {
   margin: 4px 0 0;
   color: #9fc0da;
-  font-size: 0.82rem;
+  font-size: 1.3rem;
   line-height: 1.45;
 }
 
@@ -321,7 +321,7 @@
 }
 
 .stat-label {
-  font-size: 0.72rem;
+  font-size: 0.95rem;
   color: #98bedb;
   text-transform: uppercase;
   letter-spacing: 0.06em;

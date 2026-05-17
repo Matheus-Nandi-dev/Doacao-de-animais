@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit, inject } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ChangeDetectionStrategy, inject } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
@@ -7,9 +7,11 @@ import { AnimalService } from '../../services/animal';
 
 @Component({
   selector: 'app-adotar',
+  standalone: true,
   imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './adotar.html',
   styleUrl: './adotar.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Adotar implements OnInit {
   loading = true;
@@ -69,11 +71,13 @@ export class Adotar implements OnInit {
 
   confirmarAdocao(): void {
     if (!this.modalNome || !this.modalWhatsapp || !this.modalEmail) {
-      alert('Por favor, preencha todos os campos!');
+      // TODO: Replace with proper toast notification
+      console.warn('Por favor, preencha todos os campos!');
       return;
     }
 
-    alert(`✅ Solicitação enviada!\nEntraremos em contato em breve, ${this.modalNome}!`);
+    // TODO: Send adoption request to backend
+    console.log(`Solicitação enviada! Entraremos em contato em breve, ${this.modalNome}!`);
     this.fecharModal();
   }
 }

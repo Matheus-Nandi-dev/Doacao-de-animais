@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
@@ -7,7 +7,12 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [RouterLink, RouterLinkActive, CommonModule],
   templateUrl: './header.html',
-  styleUrl: './header.css'
+  styleUrl: './header.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    '(document:keydown.escape)': 'onEscape()',
+    '(window:resize)': 'onResize($event)'
+  }
 })
 export class HeaderComponent {
   menuOpen = false;
@@ -15,10 +20,8 @@ export class HeaderComponent {
   toggleMenu(): void { this.menuOpen = !this.menuOpen; }
   closeMenu(): void { this.menuOpen = false; }
 
-  @HostListener('document:keydown.escape')
   onEscape(): void { this.menuOpen = false; }
 
-  @HostListener('window:resize', ['$event'])
   onResize(event: UIEvent): void {
     if ((event.target as Window).innerWidth >= 768) this.menuOpen = false;
   }

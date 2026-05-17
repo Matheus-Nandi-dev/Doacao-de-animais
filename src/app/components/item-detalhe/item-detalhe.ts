@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit, inject } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ChangeDetectionStrategy, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { catchError, finalize, of, timeout } from 'rxjs';
@@ -9,7 +9,8 @@ import { Animal, AnimalService } from '../../services/animal';
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './item-detalhe.html',
-  styleUrl: './item-detalhe.css'
+  styleUrl: './item-detalhe.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ItemDetalhe implements OnInit {
   animal: Animal | null = null;

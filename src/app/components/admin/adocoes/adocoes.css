@@ -1,0 +1,207 @@
+.admin-panel {
+  color: #e8f3ff;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid rgba(45, 212, 191, 0.3);
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.panel-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.filtros {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filtros button {
+  background: rgba(45, 212, 191, 0.15);
+  color: #9bc0dd;
+  border: 1px solid rgba(45, 212, 191, 0.3);
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filtros button:hover {
+  background: rgba(45, 212, 191, 0.25);
+}
+
+.filtros button.ativo {
+  background: #2dd4bf;
+  color: #0a1628;
+  border-color: #2dd4bf;
+}
+
+/* Tabela */
+.tabela-container {
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid rgba(45, 212, 191, 0.2);
+  margin-bottom: 30px;
+}
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  background: linear-gradient(135deg, rgba(13, 52, 86, 0.6), rgba(9, 30, 54, 0.5));
+}
+
+.tabela thead {
+  background: rgba(13, 52, 86, 0.9);
+  border-bottom: 2px solid rgba(45, 212, 191, 0.3);
+}
+
+.tabela th {
+  padding: 16px 12px;
+  text-align: left;
+  color: #2dd4bf;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.tabela td {
+  padding: 14px 12px;
+  border-bottom: 1px solid rgba(45, 212, 191, 0.1);
+  color: #9bc0dd;
+  font-size: 1rem;
+}
+
+.tabela tbody tr:hover {
+  background: rgba(45, 212, 191, 0.05);
+}
+
+.tabela .animal {
+  color: #2dd4bf;
+  font-weight: 600;
+}
+
+.tabela .center {
+  text-align: center;
+}
+
+.status {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.status-concluida {
+  background: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.status-pendente {
+  background: rgba(245, 158, 11, 0.2);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.4);
+}
+
+.status-cancelada {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ff6b6b;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+.vazio {
+  text-align: center;
+  padding: 40px 20px;
+  color: #9bc0dd;
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+/* Estatísticas */
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.stat-item {
+  background: linear-gradient(135deg, rgba(13, 52, 86, 0.9), rgba(9, 30, 54, 0.85));
+  border: 1px solid rgba(45, 212, 191, 0.3);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-4px);
+  border-color: rgba(45, 212, 191, 0.6);
+}
+
+.stat-item h3 {
+  margin: 0 0 12px;
+  color: #9bc0dd;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.stat-item .valor {
+  margin: 0;
+  font-size: 2.2rem;
+  color: #2dd4bf;
+  font-weight: 700;
+}
+
+.stat-item.concluida {
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+.stat-item.concluida .valor {
+  color: #10b981;
+}
+
+.stat-item.pendente {
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+.stat-item.pendente .valor {
+  color: #f59e0b;
+}
+
+.stat-item.cancelada {
+  border-color: rgba(239, 68, 68, 0.4);
+}
+
+.stat-item.cancelada .valor {
+  color: #ff6b6b;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .panel-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tabela th,
+  .tabela td {
+    padding: 10px 8px;
+    font-size: 0.9rem;
+  }
+
+  .stats-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

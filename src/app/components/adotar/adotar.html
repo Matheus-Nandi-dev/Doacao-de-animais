@@ -9,31 +9,54 @@
 	</div>
 } @else {
 	<main class="adotar-page">
-		<div class="modal-box">
-			<button class="modal-fechar" (click)="fecharModal()">✕</button>
-			<h2>Quero Adotar! 🐾</h2>
-			<p class="modal-subtitulo">Solicitando adoção de: {{ animalSelecionadoNome }}</p>
+		<div class="modal-content adotar-modal">
+			<button class="modal-close" (click)="fecharModal()" aria-label="Fechar">✕</button>
+			<h2>🐾 Quero Adotar!</h2>
+			<p class="modal-desc">Solicitando adoção de: <strong>{{ animalSelecionadoNome }}</strong></p>
 
-			<div class="modal-campo">
-				<label>Nome</label>
-				<input type="text" [(ngModel)]="modalNome" placeholder="Seu nome completo" />
+			<div class="modal-form">
+				<div class="form-group">
+					<label for="adotarNome">Seu Nome *</label>
+					<input 
+						id="adotarNome"
+						type="text" 
+						[(ngModel)]="modalNome" 
+						placeholder="Seu nome completo"
+						class="modal-input"
+					/>
+				</div>
+
+				<div class="form-group">
+					<label for="adotarWhatsapp">WhatsApp *</label>
+					<input 
+						id="adotarWhatsapp"
+						type="tel" 
+						[(ngModel)]="modalWhatsapp" 
+						placeholder="(00) 00000-0000"
+						class="modal-input"
+					/>
+				</div>
+
+				<div class="form-group">
+					<label for="adotarEmail">E-mail *</label>
+					<input 
+						id="adotarEmail"
+						type="email" 
+						[(ngModel)]="modalEmail" 
+						placeholder="seu@email.com"
+						class="modal-input"
+					/>
+				</div>
 			</div>
 
-			<div class="modal-campo">
-				<label>WhatsApp</label>
-				<input type="tel" [(ngModel)]="modalWhatsapp" placeholder="(00) 00000-0000" />
+			<div class="modal-actions">
+				<button class="btn-enviar" (click)="confirmarAdocao()">
+					✅ Enviar Solicitação de Adoção
+				</button>
+				<button class="btn-cancelar" (click)="fecharModal()">
+					Cancelar
+				</button>
 			</div>
-
-			<div class="modal-campo">
-				<label>E-mail</label>
-				<input type="email" [(ngModel)]="modalEmail" placeholder="seu@email.com" />
-			</div>
-
-			<button class="btn-adotar-confirmar" (click)="confirmarAdocao()">
-				Um toque para adotar 🐾
-			</button>
-
-			<button class="btn-cancelar" (click)="fecharModal()">Cancelar</button>
 		</div>
 	</main>
 }
